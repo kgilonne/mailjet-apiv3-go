@@ -96,6 +96,15 @@ type Apitoken struct {
 	ValidFor      int `json:",omitempty"`
 }
 
+type SenderValidate struct {
+	File		string		`mailjet:"read_only"`
+	DNS		string		`mailjet:"read_only"`
+	ActivationEmail	string		`mailjet:"read_only"`
+	ACL		string		`mailjet:"read_only"`
+	Metasender	string		`mailjet:"read_only"`
+	Domain		string		`mailjet:"read_only"`
+}
+
 // Axtesting: AX testing object
 type Axtesting struct {
 	ContactListID   int64            `json:",omitempty"`
@@ -321,17 +330,18 @@ type Clickstatistics struct {
 
 // Contact: Manage the details of a Contact.
 type Contact struct {
-	CreatedAt         *RFC3339DateTime `mailjet:"read_only"`
-	DeliveredCount    int64            `mailjet:"read_only"`
-	Email             string
-	ID                int64            `mailjet:"read_only"`
-	IsOptInPending    bool             `mailjet:"read_only"`
-	IsSpamComplaining bool             `mailjet:"read_only"`
-	LastActivityAt    *RFC3339DateTime `mailjet:"read_only"`
-	LastUpdateAt      *RFC3339DateTime `mailjet:"read_only"`
-	Name              string           `json:",omitempty"`
-	UnsubscribedAt    *RFC3339DateTime `mailjet:"read_only"`
-	UnsubscribedBy    string           `mailjet:"read_only"`
+	CreatedAt       	 *RFC3339DateTime `mailjet:"read_only"`
+	DeliveredCount    	int64            `mailjet:"read_only"`
+	Email             	string
+	IsExcludedFromCampaigns	bool		 `mailjet:"read_only"`	
+	ID                	int64            `mailjet:"read_only"`
+	IsOptInPending    	bool             `mailjet:"read_only"`
+	IsSpamComplaining 	bool             `mailjet:"read_only"`
+	LastActivityAt  	*RFC3339DateTime `mailjet:"read_only"`
+	LastUpdateAt    	*RFC3339DateTime `mailjet:"read_only"`
+	Name            	string           `json:",omitempty"`
+	UnsubscribedAt  	*RFC3339DateTime `mailjet:"read_only"`
+	UnsubscribedBy  	string           `mailjet:"read_only"`
 }
 
 // ContactManagecontactslists: Managing the lists for a single contact. POST is supported.
